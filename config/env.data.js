@@ -3,6 +3,11 @@ const envBuild = {
   'DEBUG=TRUE',
   'NODE_ENV=test',      
   'PORT=3000',
+  'LOCAL_USER=isabellabeltran',
+  'LOCAL_HOST=localhost',
+  'LOCAL_DATABASE=jijenge',
+  'LOCAL_PASSWORD=',
+  'LOCAL_PORT=5432',
   ]
 }
 

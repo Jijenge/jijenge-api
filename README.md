@@ -8,3 +8,5 @@ jijenge-api
 3. At jijenge-api yarn buildEnv
 4. At jijenge-api yarn start:rest-server
 
+#Database connection 
+

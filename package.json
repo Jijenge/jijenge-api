@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "start:rest-server": "cd rest-server && yarn start",
-    "buildEnv": "node bin/buildEnv.js"
+    "buildEnv": "node bin/buildEnv.js",
+    "db:setup:rest-server": "cd rest-server && babel-node src/config/database/postgreSQL/setup.js"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
