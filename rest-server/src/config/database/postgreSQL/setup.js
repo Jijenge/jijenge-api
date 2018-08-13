@@ -1,19 +1,23 @@
 import {
   createDatabase,
-  createMailingList,
+  createContactUs,
   createMonthlyDonors,
+  createVisitAfrica,
   dropDatabase,
-  dropMailingList,
-  dropMonthlyDonors
+  dropContactUs,
+  dropMonthlyDonors,
+  dropVisitAfrica
 } from '../../../lib/pg';
 
 const setup = async () => {
   await dropDatabase();
-  await dropMailingList();
+  await dropContactUs();
   await dropMonthlyDonors();
+  await dropVisitAfrica(); 
   await createDatabase();
-  await createMailingList();
+  await createContactUs();
   await createMonthlyDonors();
+  await createVisitAfrica();
   process.exit();
 };
 
