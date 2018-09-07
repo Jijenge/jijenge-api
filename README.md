@@ -1,12 +1,12 @@
 jijenge-api
 
+# Get Started:
 
-#Get Started: 
+```
+cd into rest-server and 'npm install'
+cd back to jijenge-api and 'npm run install'
+At jijenge-api 'npm run buildEnv'
+At jijenge-api 'npm run start:rest-server'
+```
 
-1. cd into rest-server and yarn intall 
-2. cd back to jijenge-api and yarn install 
-3. At jijenge-api yarn buildEnv
-4. At jijenge-api yarn start:rest-server
-
-#Database connection 
-
+# Database connection
