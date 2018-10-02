@@ -2,10 +2,10 @@ import express from 'express';
 const router = express.Router();
 
 import {
-  donorsCheckout
+  oneTimeDonation
 } from './paymentController'; 
 
-router.route('/checkout')
-  .post(donorsCheckout);
+router.route('/oneTimeDonation')
+  .post(oneTimeDonation);
 
 export default router; 

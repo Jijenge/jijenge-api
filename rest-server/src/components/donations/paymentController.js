@@ -1,16 +1,17 @@
-const stripe = require("stripe")("sk_test_y4H1Zrtqn5ObtiKeXumvuI93");
+const SECRET = process.env.SECRET; 
+const stripe = require("stripe")(SECRET);
 import {
   success, 
   error
 } from '../../../../lib/log'; 
 
 
-export const donorsCheckout = async(req, res) => {
+export const oneTimeDonation = async(req, res) => {
   try {
     let data = await stripe.charges.create({
       amount: req.body.amount, 
       currency: "usd", 
-      description: "An example charge",
+      description: "One time donation",
       source: req.body.token 
     }); 
     res.status(200).send('Successfully process donation'); 
