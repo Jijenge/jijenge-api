@@ -4,7 +4,9 @@ import {
   success, 
   error
 } from '../../../../lib/log'; 
-
+import {
+  saveCustomer
+} from './paymentQueries.js'; 
 
 export const oneTimeDonation = async(req, res) => {
   try {
@@ -17,35 +19,26 @@ export const oneTimeDonation = async(req, res) => {
     res.status(200).send('Successfully process donation'); 
     success('Successfully process data from paymentController'); 
   } catch (err) {
-    error('Error from paymentController => ', err);
+    error('Error from one time donation => ', err);
   }
 }
 
-// Create a product Monthly Donation Jijenge Academy 
-// Create a plan using always the same product ID 
-// Check db 
-
-
-
-
-// export const createMonthlyDonor = async(req, res) => {
-//   try {
-//     const stripe = require("stripe")("sk_test_y4H1Zrtqn5ObtiKeXumvuI93");
-//     const plan = await stripe.plans.create({
-//       amount: req.body.amount,
-//       interval: 'month',
-//       product: {
-//         name: 'Monthly Donation Jijenge Academy'
-//       },
-//       currency: 'usd'
-//     }); 
-//     const customer = await stripe.customers.create({
-//       email: req.body.email,
-//       source: req.body.token,
-//     });
-//     console.log('creating subscription', customer)
-
-//   } catch (err) {
-
-//   }
-// }
+export const monthlyDonation = async(req, res) => {
+  try {
+    let { id } = await stripe.customers.create({
+      description: `Customer for ${req.body.email}`,
+      source: req.body.token, // obtained with Stripe.js
+      email: req.body.email
+    });
+    let body = {
+      customerid: id,
+      name: req.body.name,
+      lastname: req.body.lastname,
+      email: req.body.email,
+    };
+    const data = await saveCustomer(body); 
+    success('Successfully create a customer'); 
+  } catch (err) {
+    error('Error from monthly donation => ', err);
+  }
+}

@@ -107,11 +107,10 @@ export const createMonthlyDonors = async () => {
       `
       CREATE TABLE IF NOT EXISTS monthlyDonors
       (
-        id SERIAL,
+        id SERIAL PRIMARY KEY,
         name varchar (50),
-        lastName varchar (50),
-        paymentid varchar (50),
-        stripeAccount varchar (50),
+        lastname varchar (50),
+        customerid varchar (50),
         email varchar (50) UNIQUE 
       )
       `
